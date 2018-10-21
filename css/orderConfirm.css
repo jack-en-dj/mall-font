@@ -1,0 +1,101 @@
+.container .row .panel .panel-body .table tbody tr td{
+    vertical-align: middle;
+}
+.container .row .panel .panel-body .table thead tr th{
+    text-align: center;
+}
+.container .row .panel .panel-body .table tbody tr td .thumbnail{
+    padding: 0px;
+    margin-bottom: 0px;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+}
+.container .row .panel .panel-body .table tbody tr td .thumbnail img{
+    width: 80px;
+    height: 80px;
+}
+/*地址*/
+.container .row .panel .panel-body .address-item{
+    margin: 20px 20px 0 0;
+    width: 200px;
+    padding: 5px 8px;
+    float: left;
+    border: 3px dashed #ccc;
+    cursor: pointer;
+}
+.container .row .panel .panel-body .address-item.actives{
+    border: 3px dashed #c60023;
+}
+.container .row .panel .panel-body .address-item:hover{
+    background: #fafafa;
+}
+.container .row .panel .panel-body .address-item:hover .address-opera{
+    visibility: visible;
+}
+.container .row .panel .panel-body .address-item .address-title{
+    border-bottom: 3px;
+    color: #666;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+.container .row .panel .panel-body .address-item .address-detail{
+    margin-top: 5px;
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    color: #666;
+}
+.container .row .panel .panel-body .address-item .address-opera{
+    text-align: right;
+    visibility: hidden;
+}
+.container .row .panel .panel-body .address-item .address-opera .link{
+    margin-right: 5px;
+}
+.container .row .panel .panel-body .address-item .address-new{
+    padding: 7px 0;
+    text-align: center;
+    color: #ccc;
+}
+.container .row .panel .panel-body .address-item .address-new .glyphicon-plus{
+    font-size: 50px;
+    line-height: 50px;
+}
+.container .row .panel .panel-body .address-item .address-new .text{
+    font-size: 12px;
+}
+/*提交按钮*/
+.container .row .submit-con{
+    background: #eee;
+    text-align: right;
+    vertical-align: middle;
+}
+.container .row .submit-con .submit-total{
+    font-size: 18px;
+    color: #c60023;
+    font-weight: bold;
+    line-height: 50px;
+}
+.container .row .submit-con .order-submit{
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: #c60023;
+    color: white;
+    width: 90px;
+    float: right;
+    margin-left: 50px;
+    cursor: pointer;
+}
+/* 巨幕 */
+.jumbotron{
+    position: fixed;
+    background-color: rgba(0, 0,0, 0.5);
+    top: 150px;
+    left: 200px;
+}
+.jumbotron .container .row div .form-group .form-control{
+    background-color: #ffffff4d;
+}

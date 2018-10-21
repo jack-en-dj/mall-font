@@ -1,0 +1,57 @@
+th{
+    text-align: center;
+}
+.back{
+    background-color: #fff;
+}
+.cart-footer{
+    background-color: #eee;
+    line-height: 50px;
+}
+.container .row div .select-con{
+    display: inline-block;
+    padding-left: 20px;
+}
+.container .row div .total{
+    font-size: 18px;
+    color: #c60023;
+    font-weight: bold;
+    margin-right: 30px;
+
+}
+.container .row div .btn-submit{
+    width: 80px;
+    background-color: #c60023;
+    border: 1px solid #c60023;
+    border-radius: 0px;
+    color: white;
+}
+.container .row div .delete-con{
+    display: inline-block;
+    margin-left: 20px;
+}
+.container .row .table tbody tr td{
+    vertical-align: middle;
+}
+.container .row .table tbody tr td .count-input{
+    width: 60px;
+    height: 28px;
+    line-height: 28px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+    outline: none;
+    color: #333;
+}
+.container .row .table tbody tr td .thumbnail{
+    border: none;
+    margin-bottom: 5px;
+}
+.container .row .table tbody tr td .thumbnail .pro_img{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.container .row .table tbody tr td .thumbnail .caption{
+    display: inline-block;
+}

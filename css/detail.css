@@ -1,0 +1,92 @@
+.container .row .price .list-group .list-group-item{
+	background-color: #F6F6F6;
+	border: none;
+	font-weight: bold;
+}
+.container .row .price .list-group .list-group-item .price-minus{
+	display: inline-block;
+	margin-left: 15px;
+	margin-right: 8px;
+	cursor: pointer;
+}
+.container .row .price .list-group .list-group-item .price-plus{
+	display: inline-block;
+	margin-left: 8px;
+	cursor: pointer;
+}
+.container .row .price .list-group .list-group-item .p-count{
+	display: inline-block;
+	line-height: 30px;
+	font-size: 15px;
+	width: 45px;
+	text-align: center;
+	outline: none;
+	border: 1px solid #aaa;
+}
+.container .row .price .list-group .list-group-item .main-price{
+	font-size: 18px;
+	color: #c60023;
+	font-weight: bold;
+	margin-left: 20px;
+}
+.container .row .price .list-group .list-group-item .car-shop{
+	text-align: center;
+	display: inline-block;
+	line-height: 30px;
+    width: 80px;
+    background-color: #c60023;
+    border: 1px solid #c60023;
+    border-radius: 0px;
+    color: white;
+    text-decoration: none;
+}
+.container .row .price .list-group .list-group-item .stock{
+	display: inline-block;
+	margin-left: 25px;
+}
+.container .row .price .list-group .list-group-item .subtitle{
+	color: #c60023;
+	font-size: 18px;
+}
+.container .row .price .list-group .price-color{
+	background-color: #eee;
+}
+.container .row div .thumbnail .main-image{
+	width: 420px;
+	height: 400px;
+}
+.container .row div .thumbnail{
+	padding: 0px;
+}
+.container .row div .thumbnail .caption{
+}
+.container .row div .thumbnail .caption .thumbnail{
+	margin-bottom: 0px;
+	border: none;
+	text-align: center;
+}
+.container .row div .thumbnail .caption .thumbnail .sub-image{
+	width: 80px;
+	height: 80px;
+	display: inline-block;
+	margin-right: 10px;
+}
+.container .row div .thumbnail .caption .thumbnail .sub-image:hover{
+	border: 2px solid #c60023;
+}
+.container .row div .nav{
+	background-color: #eee;
+	border-bottom: 2px solid #c60023;
+}
+.container .row div .nav li a{
+	color: black;
+	font-weight: bold;
+	border-radius: 0px;
+	color: white;
+}
+.container .row div .nav li a:hover{
+	background-color: #c60023;
+}
+.actives{
+	background-color: #c60023;
+}

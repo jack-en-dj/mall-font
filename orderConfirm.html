@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单确认页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/list.css">
+    <script src="js/orderConfirm.js"></script>
+    <link rel="stylesheet" href="css/orderConfirm.css">
+    <script src="js/city.js"></script>
+</head>
+
+<body>
+    <div id="orderConfirm">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" v-if="username">
+                        <li><a href="#">欢迎,{{username}}</a></li>
+                        <li><a href="#" @click="logout">退出</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav" v-else>
+                        <li><a href="./login.html" target="_blank">登陆</a></li>
+                        <li><a href="./register.html" target="_blank">注册</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li v-if="cartNum"><a href="./cart.html">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                购物车(<span style="color:#c60023">{{cartNum}}</span>)</a></li>
+                        <li v-else><a href="./cart.html">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                购物车</a></li>
+                        <li><a href="./orderList.html">
+                                <span class="glyphicon glyphicon-list"></span>
+                                我的订单</a></li>
+                        <li><a href="#">
+                                <span class="glyphicon glyphicon-user"></span>
+                                个人中心</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container line">
+            <div class="row">
+                <div class="col-lg-3 text-right"><a href="./index.html" id="logo">JadenyMall</a></div>
+                <div class="col-lg-8 clearfix">
+                    <input class="search-input" id="search-input" placeholder="请输入商品名称" />
+                    <button class="btn search-btn" id="search-btn">搜索</button>
+                </div>
+            </div>
+        </div>
+        <div class="container" v-if="flag">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="mall.html">首页</a></li>
+                    <li><a href="./cart.html">购物车页</a></li>
+                    <li><a href="./orderConfirm.html">订单确认页</a></li>
+                </ol>
+            </div>
+            <div class="row">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">收货地址管理</h3>
+                    </div>
+                    <div class="panel-body clearfix">
+                        <div v-for="addr in OrderAddress" @click="selectAdd(addr.id,$event)" class="address-item">
+                            <div class="address-title">
+                                {{addr.receiverCity}} {{addr.receiverProvince}} ( {{addr.receiverName}} 收)
+                            </div>
+                            <div class="address-detail">
+                                {{addr.receiverAddress}} {{addr.receiverPhone}}
+                            </div>
+                            <div class="address-opera">
+                                <span class="link address-update" @click="updateShip(addr.id)">编辑</span>
+                                <span class="link address-delete" @click="deleteShip(addr.id)">删除</span>
+                            </div>
+                        </div>
+                        <div class="address-item address-add">
+                            <div class="address-new" @click="show">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <div class="text">使用新地址</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">商品清单</h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table text-center">
+                            <thead>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>商品描述</th>
+                                    <th>价格</th>
+                                    <th>数量</th>
+                                    <th>小计</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="order in OrderList.orderItemVoList">
+                                    <td class="text-right">
+                                        <a :href="'./detail.html?productId='+order.productId" class="thumbnail" target="_blank">
+                                            <img :src="OrderList.imageHost+order.productImage" :alt="order.productName">
+                                        </a>
+                                    </td>
+                                    <td><a :href="'./detail.html?productId='+order.productId">{{order.productName}}</a></td>
+                                    <td>￥{{order.currentUnitPrice}}</td>
+                                    <td>{{order.quantity}}</td>
+                                    <td>￥{{order.totalPrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="submit-con clearfix">
+                    <span>订单总价</span>
+                    <span class="submit-total">￥{{OrderList.productTotalPrice}}</span>
+                    <span class="order-submit" @click="orderSubmit()">提交订单</span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-lg-12 text-center">
+                <div class="h5">百度 | 淘宝 | 腾讯 | Java</div>
+                <div>©Copyright 2018 by Jadeny</div>
+            </div>
+        </div>
+        <div class="jumbotron hidden">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    
+                    </div>
+    
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <label for="re-name">收件人姓名:</label>
+                            <input type="text" class="form-control" id="re-name" placeholder="请输入收件人姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="input">所在城市:</label>
+    
+                            <select id="addr-input" class="form-control">
+                            </select>
+                            <select id="addr-input1" class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="re-addr">详细地址:</label>
+                            <input type="text" class="form-control" id="re-addr" placeholder="请精确到门牌号">
+                        </div>
+                        <div class="form-group">
+                            <label for="re-phone">收件人电话:</label>
+                            <input type="text" class="form-control" id="re-phone" placeholder="请输入11位手机号">
+                        </div>
+                        <div class="form-group">
+                            <label for="youzheng">邮政编码:</label>
+                            <input type="text" id="youzheng" class="form-control" placeholder="如:10000" required="required"
+                                pattern="">
+                        </div>
+                       <button class="btn" id="saveShip" @click="saveShipping">保存</button>
+                       <button class="btn" id="closeBox" @click="closeBox">关闭</button>
+                    </div>
+    
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

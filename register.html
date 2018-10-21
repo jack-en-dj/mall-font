@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>register</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/init.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+</head>
+<body class="back">
+	<div class="container" id="register">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<form class="form-horizontal">
+					<span class="heading">用户注册</span>
+					<div class="form-group">
+						<input required="required" @change="checkName(username)" type="text" class="form-control" placeholder="请输入用户名" v-model.trim="username">
+						<span class="glyphicon glyphicon-user"></span>
+						<label v-if="usernameTip" class="tips">{{usernameTip}}</label>
+					</div>
+					<div class="form-group help">
+						<input required="required" type="password" v-model.trim="password" class="form-control" placeholder="请输入密码">
+						<span class="glyphicon glyphicon-lock"></span>
+						<label v-if="passwordTip" class="tips">{{passwordTip}}</label>
+					</div>
+					<div class="form-group help">
+						<input required="required" type="password" @change="checkPass(password)" v-model.trim="password1" class="form-control" placeholder="请再次输入密码">
+						<span class="glyphicon glyphicon-lock"></span>
+					</div>
+					<div class="form-group">
+						<input required="required" @change="checkPhone(phone)" type="text" class="form-control" placeholder="请输入手机号" v-model.trim="phone">
+						<span class="glyphicon glyphicon-phone-alt"></span>
+						<label v-if="phoneTip" class="tips">{{phoneTip}}</label>
+					</div>
+					<div class="form-group">
+						<input required="required" @change="checkEmail(email)" type="email" class="form-control" placeholder="请输入邮箱" v-model.trim="email">
+						<span class="glyphicon glyphicon-envelope"></span>
+						<label v-if="emailTip" class="tips">{{emailTip}}</label>
+					</div>
+					<div class="form-group">
+						<input required="required" type="text" class="form-control" placeholder="请输入密码提示问题" v-model.trim="question">
+						<span class="glyphicon glyphicon-question-sign"></span>
+					</div>
+					<div class="form-group">
+						<input required="required" type="text" class="form-control" placeholder="请输入密码提示答案" v-model.trim="answer">
+						<span class="glyphicon glyphicon-text-color"></span>
+					</div>
+					<div class="form-group">
+						<button type="button" id="submits" class="btn btn-default" @click="register()">注册</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

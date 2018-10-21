@@ -1,0 +1,12 @@
+.container .row .table thead tr th{
+    text-align: center;
+}
+.container .row .table tbody tr td{
+    vertical-align: middle;
+}
+
+.container .row .table tbody tr .money{
+    color:#c60023;
+    font-size: 16px;
+    font-weight: bold;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/init.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+</head>
+<body class="back">
+	<div class="container" id="login">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<form class="form-horizontal">
+					<span class="heading">用户登录</span>
+					<div class="form-group">
+						<input required="required" @change="checkName()" type="text" class="form-control" id="inputEmail3" placeholder="请输入用户名" v-model.trim="username">
+						<span class="glyphicon glyphicon-user"></span>
+						<label v-if="user" class="tips">{{user}}</label>
+					</div>
+					<div class="form-group help">
+						<input type="password" @change="checkPass" v-model.trim="password" class="form-control" id="inputPassword3" placeholder="密码">
+						<span class="glyphicon glyphicon-lock"></span>
+						<label v-if="pass" class="tips">{{pass}}</label>
+					</div>
+					<div class="form-group">
+						<a href="./register.html" class="btn btn-default" target="_blank">去注册</a>
+						<button type="button" id="submits" class="btn btn-default" @click="login()">登录</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

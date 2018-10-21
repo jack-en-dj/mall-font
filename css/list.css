@@ -1,0 +1,58 @@
+.line{
+	height: 90px;
+	padding-top: 10px;
+    border-bottom: 2px solid #c60023;
+}
+.container .row .search-input{
+    width: 550px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 2px solid #c60023;
+    outline: none;
+    float: left;
+}
+.container .row .search-btn{
+    height: 40px;
+    width: 80px;
+    float: left;
+    background-color: #c60023;
+    border: 1px solid #c60023;
+    border-radius: 0px;
+    color: white;
+}
+#logo{
+    font-size: 36px;
+    color: #c60023;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+
+
+.container .row .breadcrumb li a{
+    text-decoration: none;
+    color: #BABABA;
+}
+
+#two .btn-group button{
+    margin-right: 10px;
+    font-size: 12px;
+
+}
+#app .container .rows div a{
+    text-decoration: none;
+}
+#app .container .rows div .thumbnail img{
+    width: 100%;
+    height: 180px;
+}
+#app .container .rows{
+    margin-top: 15px;
+}
+#app .container .rows div .thumbnail .caption h5{
+    color: #e7380d;
+    font-size: 16px;
+}

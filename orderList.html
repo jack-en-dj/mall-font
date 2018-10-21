@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单列表页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/init.css">
+    <link rel="stylesheet" type="text/css" href="css/list.css">
+    <link rel="stylesheet" href="css/orderList.css">
+    <script src="js/orderList.js"></script>
+</head>
+
+<body>
+    <div id="orderList">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" v-if="username">
+                        <li><a href="#">欢迎,{{username}}</a></li>
+                        <li><a href="#" @click="logout">退出</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav" v-else>
+                        <li><a href="./login.html" target="_blank">登陆</a></li>
+                        <li><a href="./register.html" target="_blank">注册</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li v-if="cartNum"><a href="./cart.html">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                购物车(<span style="color:#c60023">{{cartNum}}</span>)</a></li>
+                        <li v-else><a href="./cart.html">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                购物车</a></li>
+                        <li><a href="./orderList.html">
+                                <span class="glyphicon glyphicon-list"></span>
+                                我的订单</a></li>
+                        <li><a href="#">
+                                <span class="glyphicon glyphicon-user"></span>
+                                个人中心</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container line">
+            <div class="row">
+                <div class="col-lg-3 text-right"><a href="./index.html" id="logo">JadenyMall</a></div>
+                <div class="col-lg-8 clearfix">
+                    <input class="search-input" id="search-input" placeholder="请输入商品名称" />
+                    <button class="btn search-btn" id="search-btn">搜索</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="mall.html">首页</a></li>
+                    <li><a href="./cart.html">购物车页</a></li>
+                    <li><a href="./orderList.html">订单列表页</a></li>
+                </ol>
+            </div>
+            <div class="row">
+                
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <th>订单号</th>
+                            <th>总价</th>
+                            <th>支付状态</th>
+                            <th>支付类型</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="list in orderList">
+                            <td>
+                                <a href="#" class="thumbnail">
+                                    <img src="#" alt="">
+                                    <div class="caption">
+                                       订单号 {{list.orderNo}}
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="money">￥{{list.payment}}</td>
+                            <td v-if="list.postage==0">
+                                未支付
+                            </td>
+                            <td v-else>已支付</td>
+                            <td>在线支付</td>
+                            <td>
+                                <button class="btn" @click="cancel(list.orderNo)">取消订单</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-lg-12 text-center">
+                <div class="h5">百度 | 淘宝 | 腾讯 | Java</div>
+                <div>©Copyright 2018 by Jadeny</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
