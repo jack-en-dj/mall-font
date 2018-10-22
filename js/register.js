@@ -16,7 +16,7 @@ $(function(){
 			tip:'',
 			emailTip:'',
 			usernameTip:'',
-			url:"http://127.0.0.1:5500"
+			url:"http://127.0.0.1:8080"
 		},
 		methods:{
 			checkName:function(msg){
