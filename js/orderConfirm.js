@@ -14,7 +14,7 @@ $(function () {
 			cartNum: '',
 			shippingId: null,
 			receiverInfo: {},
-			url: "http://127.0.0.1:8080"
+			url: "http://www.jadeny.top"
 		},
 		methods: {
 			init: function () {
