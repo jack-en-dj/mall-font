@@ -119,7 +119,7 @@ $(function () {
 					url:that.url+"/shipping/select.do",
 					data:that.shippingId,
 					success:function(data){
-						console.log(data);
+						//console.log(data);
 					}
 				})
 				console.log(that.shippingId);
@@ -197,7 +197,7 @@ $(function () {
 					success: function (data) {
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href = "./mall.html";
+							window.location.href = "./index.html";
 						}
 					}
 				});

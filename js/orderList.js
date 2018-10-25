@@ -24,7 +24,7 @@ $(function () {
                     url:that.url+"/order/list.do",
                     success:function(data){
 						that.orderList = data.data.list;
-                        console.log(that.orderList);
+                        //console.log(that.orderList);
                     }
                 })
 			},
@@ -80,7 +80,7 @@ $(function () {
 					success: function (data) {
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href = "./mall.html";
+							window.location.href = "./index.html";
 						}
 					}
 				});

@@ -34,7 +34,7 @@ $(function(){
 					success:function(data){
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href="./mall.html";
+							window.location.href="./index.html";
 						}
 					}
 				});

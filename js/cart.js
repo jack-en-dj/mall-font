@@ -57,7 +57,7 @@ $(function(){
 					success:function(data){
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href="./mall.html";
+							window.location.href="./index.html";
 						}
 					}
 				});
@@ -131,7 +131,7 @@ $(function(){
 				pCount--;
 				that.updateCount.productId =productId;
 				that.updateCount.count=pCount;
-				console.log(pCount);
+				//console.log(pCount);
 				$.ajax({
 					type:'POST',
 					url:that.url+"/cart/update.do",
@@ -176,7 +176,7 @@ $(function(){
 					data:that.productIds,
 					success:function(data){
 						that.getCartList();
-						console.log(data);
+						//console.log(data);
 						that.cartNumber();
 					}
 				});
@@ -211,7 +211,7 @@ $(function(){
 						if (data.success) {
 							that.cartDetail = data.data;
 							that.flag = true;
-							console.log(that.cartDetail);
+							//console.log(that.cartDetail);
 						}else{
 							that.flag =false;
 						}

@@ -41,7 +41,7 @@ $(function(){
 					success:function(data){
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href="./mall.html";
+							window.location.href="./index.html";
 						}
 					}
 				});
@@ -58,7 +58,7 @@ $(function(){
 					data:that.toCar,
 					dataType:"json",
 					success:function(data){
-						console.log(data);
+						//console.log(data);
 						if(data.success){
 							alert("成功加入购物车!");
 						}
@@ -86,7 +86,7 @@ $(function(){
 			//页面跳转
 			goHome:function(){
 				if (this.listParam==null) {
-					window.location.href="./mall.html";
+					window.location.href="./index.html";
 				}
 			},
 			// 获取URL参数的方法
@@ -123,5 +123,4 @@ $(function(){
 		}
 	});
 	vue.init();
-	console.log(vue);
 });
