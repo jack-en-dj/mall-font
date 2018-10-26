@@ -73,7 +73,7 @@ $(function(){
 						alert(data.msg);
 						if (data.success) {
 							setTimeout(function(){
-								window.location.href="./login.html";
+								window.location.href="../login.html";
 							},3000);
 						}
 					}

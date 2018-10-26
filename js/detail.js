@@ -41,7 +41,7 @@ $(function(){
 					success:function(data){
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href="./index.html";
+							window.location.href="../index.html";
 						}
 					}
 				});
@@ -86,7 +86,7 @@ $(function(){
 			//页面跳转
 			goHome:function(){
 				if (this.listParam==null) {
-					window.location.href="./index.html";
+					window.location.href="../index.html";
 				}
 			},
 			// 获取URL参数的方法

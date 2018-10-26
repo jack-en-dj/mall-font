@@ -60,7 +60,7 @@ $(function () {
 						},
 						success: function (data) {
 							//console.log(data);
-							window.location.href = "./payment.html?orderNumber=" + data.data.orderNo;
+							window.location.href = "../payment.html?orderNumber=" + data.data.orderNo;
 						}
 					})
 				} else {
@@ -197,7 +197,7 @@ $(function () {
 					success: function (data) {
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href = "./index.html";
+							window.location.href = "../index.html";
 						}
 					}
 				});

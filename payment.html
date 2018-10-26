@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>list</title>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>支付页</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/pay.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/init.css">
-	<link rel="stylesheet" type="text/css" href="css/list.css">
-	<script type="text/javascript" src="js/list.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/mall.css">
 </head>
 <body>
-	<div id="app">
-		<nav class="navbar navbar-default">
+    <div id="pay">
+        <nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -52,48 +52,16 @@
 		</nav>
 		<div class="container line">
 			<div class="row">
-				<div class="col-lg-3 text-right"><a href="./index.html" id="logo">JadenyMall</a></div>
+				<div class="col-lg-3 text-right"><a href="./index.html" id="logo">Mall</a></div>
 				<div class="col-lg-8 clearfix">
-					<input class="search-input" id="search-input" placeholder="请输入商品名称"/>
-					<button class="btn search-btn" id="search-btn">搜索</button>
+					<input class="search-input" @keyup.enter="searchProduts()" v-model="keyword" id="search-input" placeholder="请输入商品名称"/>
+					<button class="btn search-btn" id="search-btn"  @click="searchProduts()">搜索</button>
 				</div>
 			</div>
 		</div>
 		<div class="container">
-			<div class="row">
-				<ol class="breadcrumb">
-					<li><a href="mall.html">首页</a></li>
-					<li><a href="#">商品详情页</a></li>
-				</ol>
-			</div>
-			<div class="row" id="two">
-				<div class="btn-group">
-					<button type="button" class="btn btn-default" @click="">默认排序</button>
-					<button type="button" class="btn btn-default" @click="getProduct()">价格排序
-						<span class="glyphicon glyphicon-sort"></span></button>
-				</div>
-			</div>
-			<div class="row rows" v-if="listProducts.length>0">
-				<div class="col-md-4 col-lg-2 col-xs-6" v-for="product in listProducts">
-					<a class="thumbnail" :href="'./detail.html?productId='+product.id" target="_blank" >
-						<img :src="product.imageHost+product.mainImage" :alt="product.name">
-						<div class="caption">
-							<h5>￥{{product.price}}</h5>
-							<p>{{product.name}}</p>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="row text-center" v-else>
-				<h5 style="color: red;font-size: 22px;">抱歉暂时没有该商品!</h5>
-			</div>
+			<img :src="codeImg" alt="">
 		</div>
-		<div class="container">
-				<div class="col-lg-12 text-center">
-					<div class="h5">百度  | 淘宝 | 腾讯 | Java</div>
-					<div>©Copyright 2018 by Jadeny</div>
-				</div>
-		</div>
-	</div>
+    </div>
 </body>
 </html>

@@ -39,7 +39,7 @@ $(function(){
 						success:function(data){
 							if (data.success) {
 								localStorage.setItem("username", data.data.username);
-								window.location.href="./index.html";
+								window.location.href="../index.html";
 							}
 						}
 					})

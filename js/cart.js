@@ -21,7 +21,7 @@ $(function(){
 			},
 			//去结算
 			goPay:function(){
-				window.location.href="./orderConfirm.html";
+				window.location.href="../orderConfirm.html";
 			},
 			cartNumber:function(){
 				var that = this;
@@ -57,7 +57,7 @@ $(function(){
 					success:function(data){
 						if (data.success) {
 							localStorage.removeItem("username");
-							window.location.href="./index.html";
+							window.location.href="../index.html";
 						}
 					}
 				});
